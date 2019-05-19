@@ -1,10 +1,8 @@
-
-
-<html>
+<!DOCTYPE html>
+<html lang = "en">
     <head>
         <meta charset="utf-8">
-        <script src="func_date.js"></script>
-        
+
     </head>
     <body>
         <h2 episode="1">Creating a JS library with function</h2>
@@ -17,43 +15,28 @@
             </i>-->
 
                 <!--<input type="checkbox" name="Date" value="date"> Display date</input><br></br>-->
-                
-                <input type="checkbox" id="myCheck" onchange="test">
-                <button onclick="uncheck()"> Don't display date</button>
-                <button onclick="check()">Display date</button>
-                    
-                <p id="test"></p>
-                
-                
-                           
-        </div>
 
+                <label for="chkDate">
+                    <input type="checkbox" id="chkDate" onclick="ShowHideDiv(this)" />
+                    Display date?
+                </label>
+
+                <div id="show" style="display: none">
+                    Date
+                </div>
 
         <script>
-            function check() {
-                document.getElementById("myCheck").checked=true;
+            if(localStorage.getItem("displayDate") === null) {
+                localStorage.setItem("displayDate", "block");
             }
-            function uncheck() {
-                document.getElementById("myCheck").checked=false;
+            function ShowHideDiv(chkDate) {
+                localStorage.setItem("displayDate", chkDate.checked ? "block" : "none");
+                var doc = document.getElementById("show");
+                doc.style.display = chkDate.checked ? "block" : "none";
+                console.log(localStorage.getItem("displayDate"));
             }
-            const dateElement = document.getElementById("test");
-            const options = {weekday : "long", month : "short", day : "numeric"};
-            const today = new Date();
-            function func_date() {          
-                var x = document.getElementById("myCheck").value;
-                if(x == True) {
-                    test.innerText = new Date();
-                //document.getElementById("test").innerText = new Date();  }
-                //dateElement.innerHTML = today.toLocaleDateString("en-US", options);
-                document.getElementById('test').innerHTML = "<p>Hello wasssup</p>";
-            };
-
-            //window.onload = function(){
-            //today.toLocaleDateString("en-US", options);
-            //}
         </script>
-   
-    
 
     </body>
+
 </html>
