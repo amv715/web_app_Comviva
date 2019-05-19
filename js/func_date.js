@@ -1,13 +1,25 @@
-
-const dateElement = document.getElementById("date");
-const options = {weekday : "long", month : "short", day : "numeric"};
-const today = new Date();
-function func_date() {          
-    document.getElementById("date").innerHTML = "blehhhh";
-            // dateElement.innerHTML = today.toLocaleDateString("en-US", options);
-            // document.getElementById('testing').innerHTML = "<p>Hello wasssup</p>";
-};
-
-window.onload = function(){
-     today.toLocaleDateString("en-US", options);
+if(localStorage.getItem("displayDate") === null){
+    localStorage.setItem("displayDate", "block");
 }
+console.log(localStorage.getItem("displayDate"));
+
+(function () {
+    function checkTime(i) {
+        return (i < 10) ? "0" + i : i;
+    }
+
+    function startTime() {
+        var today = new Date(),
+        h = checkTime(today.getHours()),
+        m = checkTime(today.getMinutes()),
+        s = checkTime(today.getSeconds());
+        document.getElementById('test').innerHTML = h + ":" + m + ":" + s;
+        var doc = document.getElementById("show");
+        doc.style.display = localStorage.getItem("displayDate");
+        console.log(localStorage.getItem("displayDate"));
+        t = setTimeout(function () {
+            startTime()
+        }, 500);
+    }
+    startTime();
+})();
