@@ -2,7 +2,12 @@
 <html lang = "en">
     <head>
         <meta charset="utf-8">
+        <title> SAMPLE SDK </title>
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
+        
     </head>
     <body>
         <h2 episode="1">Creating a JS library with function</h2>
@@ -25,6 +30,15 @@
                     Date
                 </div>
 
+
+                <label for="refresh_icon">            
+                    <input type="checkbox" id="refresh_icon" />
+                    Rotate refresh?
+                </label>
+                <p class="clearid" style="display: none">
+                    Refresh
+                </p>
+
         <script>
             if(localStorage.getItem("displayDate") === null) {
                 localStorage.setItem("displayDate", "block");
@@ -35,8 +49,30 @@
                 doc.style.display = chkDate.checked ? "block" : "none";
                 console.log(localStorage.getItem("displayDate"));
             }
-        </script>
+            
+            /*if(localStorage.getItem("displayRefresh") === null) {
+                localStorage.setItem("displayRefresh", "block");
+            }
 
+            function refreshFunc(refresh_icon) {
+                localStorage.setItem("displayRefresh", refresh_icon.checked ? "block" : "none");
+                var doc = document.getElementById("clearid");
+                doc.style.display = refresh_icon.checked ? "block" : "none";
+                console.log(localStorage.getItem("displayRefresh"));
+                console.log(document.getElementById('test2').setItem());
+            }*/
+            
+            $(document).ready(function(){
+                $('#refresh_icon').on('click',function(){
+                    if($(this).is(':checked'))
+                        { flag=1;
+                            icon.className = 'fa fa-arrow-down';}
+                    else { flag=0;
+                            icon.className = 'fa fa-arrow-down open';}
+                });
+            })
+        </script>
+        
     </body>
 
 </html>
