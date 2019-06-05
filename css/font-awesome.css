@@ -2336,3 +2336,26 @@
   overflow: visible;
   clip: auto;
 }
+
+.fa-arrow-down{
+  transform: rotate(0deg);
+  transition: transform 1s linear;
+}
+
+.fa-arrow-down.open{
+  transform: rotate(180deg);
+  transition: transform 1s linear;
+}
+
+#icon {
+  margin: -90px;
+  padding: 40px;
+}
+
+#clearid {
+
+  margin: 15px;
+  padding: 10px;
+  height: 150px;
+
+}
