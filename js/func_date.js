@@ -13,8 +13,9 @@ console.log(localStorage.getItem("displayDate"));
         h = checkTime(today.getHours()),
         m = checkTime(today.getMinutes()),
         s = checkTime(today.getSeconds());
-        document.getElementById('test').innerHTML = h + ":" + m + ":" + s;
+        //document.getElementById('test').innerHTML = h + ":" + m + ":" + s;
         var doc = document.getElementById("show");
+        document.getElementById('test1').innerHTML = today;
         doc.style.display = localStorage.getItem("displayDate");
         console.log(localStorage.getItem("displayDate"));
         t = setTimeout(function () {

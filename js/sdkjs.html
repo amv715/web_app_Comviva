@@ -50,7 +50,7 @@
                 console.log(localStorage.getItem("displayDate"));
             }
             
-            /*if(localStorage.getItem("displayRefresh") === null) {
+            if(localStorage.getItem("displayRefresh") === null) {
                 localStorage.setItem("displayRefresh", "block");
             }
 
@@ -60,7 +60,7 @@
                 doc.style.display = refresh_icon.checked ? "block" : "none";
                 console.log(localStorage.getItem("displayRefresh"));
                 console.log(document.getElementById('test2').setItem());
-            }*/
+            }
             
             $(document).ready(function(){
                 $('#refresh_icon').on('click',function(){
