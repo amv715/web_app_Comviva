@@ -5,6 +5,7 @@ console.log(localStorage.getItem("displayDate"));
 
 //checkTime function
 (function () {
+    
     function checkTime(i) {
         return (i < 10) ? "0" + i : i;
     }
@@ -27,6 +28,7 @@ console.log(localStorage.getItem("displayDate"));
 })();
 
 (function(document){
+    
     var div = document.getElementById('clearid');
     var icon = document.getElementById('icon');
     //var open = false;
@@ -42,6 +44,7 @@ console.log(localStorage.getItem("displayDate"));
   })(document);
 //made use of jquery
   $(document).ready(function(){
+      
     $('#refresh_icon').on('click',function(){
         if($(this).is(':checked'))
             { flag=1;
