@@ -12,8 +12,6 @@ const LINE_THROUGH = "lineThrough";
 // const dateElement = document.getElementById("date");
 // const options = {weekday : "long", month : "short", day : "numeric"};
 // const today = new Date();
-
-
 // dateElement.innerHTML = today.toLocaleDateString("en-US", options);
 
 let LIST, id;
@@ -23,22 +21,24 @@ if(data) {
     LIST = JSON.parse(data);
     id = LIST.length;
     loadList(LIST);
-
 } else {
     LIST = [];
     id = 0;
-
 }
 
 
 function loadList(array) {
+    
     array.forEach(function(item) {
+        
         addToDo(item.name, item.id, item.done, item.trash);
 
     });
+    
 }
 
 clear.addEventListener("click", function() {
+    
     localStorage.clear();
     location.reload();
 
@@ -58,17 +58,20 @@ function addToDo(toDo, id, done, trash)  {
                         <i class="fa fa-trash-o de" job="delete" id="${id}"></i>
                     </li> 
                     `;
-                
     const position = "beforeend";
     list.insertAdjacentHTML(position, item);
+    
 }
 
+// For Adding Event
 
 document.addEventListener("keyup", function(even) {
+    
     if(event.keyCode == 13) {
         const toDo = input.value;
 
         if(toDo) {
+
             addToDo(toDo, id , false, false);
 
             LIST.push({
@@ -82,25 +85,31 @@ document.addEventListener("keyup", function(even) {
             id++;
 
         }
+        
         input.value = "";
-
+    
     }
+
 });
 
 function completeToDo(element) {
+    
     element.classList.toggle(CHECK);
     element.classList.toggle(UNCHECK);
     element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
-
     LIST[element.id].done = LIST[element.id].done ? false : true;
+    
 }
 
 function removeToDo(element) {
+    
     element.parentNode.parentNode.removeChild(element.parentNode);
     LIST[element.id].trash = true;
+    
 }
 
 list.addEventListener("click", function(event) {
+    
     const element = event.target;
     const elementJob = element.attributes.job.value;
 
