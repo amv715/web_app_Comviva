@@ -3,6 +3,7 @@ if(localStorage.getItem("displayDate") === null){
 }
 console.log(localStorage.getItem("displayDate"));
 
+//checkTime function
 (function () {
     function checkTime(i) {
         return (i < 10) ? "0" + i : i;
@@ -36,11 +37,10 @@ console.log(localStorage.getItem("displayDate"));
       } else{
         icon.className = 'fa fa-arrow-down open';
       }
-  
-      //open = !open;
+ 
     });
   })(document);
-
+//made use of jquery
   $(document).ready(function(){
     $('#refresh_icon').on('click',function(){
         if($(this).is(':checked'))
